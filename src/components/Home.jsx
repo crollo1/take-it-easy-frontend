@@ -1,7 +1,7 @@
-// import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import '../App.css';
+
+function Home() {
 
   return (
 
@@ -17,4 +17,4 @@ function App() {
 
 }
 
-export default App;
+export default Home;
