@@ -15,12 +15,14 @@ function Home() {
   return (
 
     <div className="App">
-      <header className="App-header">
-        
-       <h1>TakeItEasy</h1>
-       <h3>Get back time for yourself.</h3>
 
       <Router>
+        <header className="App-header">
+            
+        <h1>TakeItEasy</h1>
+        <h3>Get back time for yourself.</h3>
+
+      
         <nav id="navbar">
             <div class="links">
             <Link to="/">Home</Link>
@@ -46,8 +48,23 @@ function Home() {
             {' '}{' '}
             </div>
         </nav>
+      
+        </header>
+        
+        {/* <div className="routes">
+            <Routes>
+                <Route path="/" element={ <Home/> }  >
+                <Route path="/categories" element={ <Categories/> } />
+                <Route path="/tasks" element={ <Tasks/> }/>
+                <Route path="/becomehelper" element={ <BecomeHelper/> }/>
+                </Route>
+            </Routes>
+
+        </div> */}
+
       </Router>
-      </header>
+
+      
     </div>
     
   );
