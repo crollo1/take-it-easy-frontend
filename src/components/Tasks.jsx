@@ -11,8 +11,6 @@ function Tasks() {
 
     );
 
-
-
 }; // Tasks
 
 export default Tasks;
