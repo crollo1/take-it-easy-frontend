@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
        <h3>Get back time for yourself.</h3>
       </header>
     </div>
-    
+
   );
 
 }

@@ -21,7 +21,9 @@ function Home() {
             
         <h1>TakeItEasy</h1>
         <h3>Get back time for yourself.</h3>
-
+        
+        </header>
+        <hr />
       
         <nav id="navbar">
             <div class="links">
@@ -34,22 +36,22 @@ function Home() {
             <Link to="/becomehelper">Become Helper</Link> 
             {' '}{' '}
             
-            ---------------------
+            <span class="searchbar">
+            <input type="text" />
+            {' '}{' '}
+            <button>Search</button>
+            {' '}{' '}
+            </span>
             
             <Link to='/login'>Login</Link>
             {' '}{' '}
             <Link to='/signup'>Sign Up</Link>
             </div>
 
-            <div class="search">
-            <input type="text" />
-            {' '}{' '}
-            <button>Search</button>
-            {' '}{' '}
-            </div>
         </nav>
+        <hr />
       
-        </header>
+        
         
         {/* <div className="routes">
             <Routes>
