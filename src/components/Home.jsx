@@ -7,7 +7,7 @@ import {HashRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import User from './User';
 import Categories from './Categories';
 import Tasks from './Tasks';
-import BecomeHelper from './BecomeHelper';
+import BecomeHelper from './Worker';
 
 
 function Home() {
@@ -27,28 +27,40 @@ function Home() {
       
         <nav id="navbar">
             <div class="links">
+            <span id="leftLinks">    
             <Link to="/">Home</Link>
             {' '}{' '}
             <Link to="/categories">Categories</Link>
             {' '}{' '} 
             <Link to="/tasks">Browse Tasks</Link> 
             {' '}{' '}
-            <Link to="/becomehelper">Become Helper</Link> 
+            <Link to="/postTasks">Post a Task</Link> 
             {' '}{' '}
+            <Link to="/worker">Become Worker</Link> 
+            {' '}{' '}
+            </span>
             
-            <span class="searchbar">
+            
+            <span id="rightLinks">
+            <Link to='/login'>Login</Link>
+            {' '}{' '}
+            <Link to='/signUp'>Sign Up</Link>
+            </span>
+            </div>
+
+
+        </nav>
+        <br />
+        <br />
+        
+
+        <div class="searchbar">
             <input type="text" />
             {' '}{' '}
             <button>Search</button>
             {' '}{' '}
-            </span>
-            
-            <Link to='/login'>Login</Link>
-            {' '}{' '}
-            <Link to='/signup'>Sign Up</Link>
-            </div>
+        </div>
 
-        </nav>
         <hr />
       
         
@@ -58,7 +70,7 @@ function Home() {
                 <Route path="/" element={ <Home/> }  >
                 <Route path="/categories" element={ <Categories/> } />
                 <Route path="/tasks" element={ <Tasks/> }/>
-                <Route path="/becomehelper" element={ <BecomeHelper/> }/>
+                <Route path="/worker" element={ <BecomeHelper/> }/>
                 </Route>
             </Routes>
 
