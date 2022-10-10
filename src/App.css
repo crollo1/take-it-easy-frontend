@@ -17,6 +17,11 @@ h1 {
   margin-bottom: 10px;
 }
 
+h2 {
+  color: white;
+  margin-bottom: 5px;
+}
+
 h3 {
   margin-top: 0px;
   margin-bottom: 10px;
@@ -91,6 +96,55 @@ button:hover {
   color: white;
 }
 
+.loginform {
+  margin: 0px 10px;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.loginbutton {
+  margin: 15px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 15px;
+
+}
+
+.signupinput {
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.signupbutton {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+button {
+  margin: 10px;
+}
+
+.taskbuttons {
+  border-radius: 5px;
+}
+
+.homeimage {
+  max-width: 30vw;
+  max-height: 30vh;
+}
+
+/* .getdone {
+
+} */
+
+.homebody {
+  /* display: grid; */
+}
+
+.homeheading {
+  margin-top: 10px;
+}
 
 
 
