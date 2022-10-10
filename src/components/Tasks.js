@@ -7,6 +7,11 @@ function Tasks() {
 
         <div className="tasks">
             <h2>Browse Tasks</h2>
+            <div className="searchbar">
+            <input type="text" />
+            {' '}{' '}
+            <button>Search</button>
+        </div>
         </div>
 
     );

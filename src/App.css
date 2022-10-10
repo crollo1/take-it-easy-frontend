@@ -20,6 +20,7 @@ h1 {
 h2 {
   color: white;
   margin-bottom: 5px;
+  margin-top: 30px;
 }
 
 h3 {
@@ -145,6 +146,23 @@ button {
 .homeheading {
   margin-top: 10px;
 }
+
+.posttaskinput {
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.workerinput {
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.posttasktext {
+  color: white;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+
 
 
 

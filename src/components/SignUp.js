@@ -1,7 +1,12 @@
 
 import Home from "./Home";
+import axios from 'axios';
+
 
 function SignUp() {
+
+
+
 
 
     return (
@@ -15,7 +20,7 @@ function SignUp() {
             <input className="signupinput"
               name="name"
               type="name"
-              placeholder='Enter Name'
+              placeholder='First Name'
             />
             </div>
             
@@ -23,7 +28,7 @@ function SignUp() {
             <input className="signupinput"
               name="display_name"
               type="display_name"
-              placeholder='Enter Display Name'
+              placeholder='Last Name'
             />
             </div>
             
