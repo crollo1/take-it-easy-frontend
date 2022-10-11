@@ -5,13 +5,13 @@ import axios from 'axios';
 function SignUp() {
 
 
-
+    
 
 
     return (
 
         <div className="signup">
-            <h2>Sign up for full access!</h2>
+            <h2>Sign up to get started!</h2>
 
             <form className="signupform">
 

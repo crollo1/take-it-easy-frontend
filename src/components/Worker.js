@@ -1,17 +1,21 @@
 
 import Home from "./Home";
+import SignUp from "./SignUp";
 
 function Worker() {
+
 
 
     return (
 
         <div className="worker">
-            <h2>Become a Worker!</h2>
+            <h2>Become a Worker</h2>
 
-            <form className="workerform">
+            <SignUp />
 
-            <div>
+            {/* <form className="workerform"> */}
+
+            {/* <div>
             <input className="workerinput"
             type="name"
             placeholder='First Name'
@@ -40,10 +44,10 @@ function Worker() {
             </div>
 
             <div>
-            <button className="signupbutton">Sign Up</button>
+            <button className="signupbutton">Let's Do it!</button>
             </div>
 
-            </form>
+            </form> */}
         </div>
 
     );

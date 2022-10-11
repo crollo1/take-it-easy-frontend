@@ -86,18 +86,16 @@ function Home( props ) {
             </span>
             <span id="leftLinks">    
             <Link to="/">Home</Link>
+            <Link to="/categories">Categories</Link> 
+            <Link to="/tasks">Browse Tasks</Link> 
 
             { currentUser !== null ? (
               <>
-              <Link to="/categories">Categories</Link> 
-              <Link to="/tasks">Browse Tasks</Link> 
               <Link to="/postTask">Post a Task</Link> 
-              <Link to="/worker">Become Worker</Link>
+              <Link to="/worker">Become a Tasker</Link>
               </>
             ) : (
               <>
-              <Link to="/categories">Categories</Link> 
-              <Link to="/tasks">Browse Tasks</Link> 
               </>
             ) }
             </span>
