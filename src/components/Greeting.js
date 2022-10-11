@@ -18,7 +18,7 @@ function Greeting() {
                 </div>
             </div>
 
-            <h3>Post your first task in seconds</h3>
+            <p className="posttaskheading">Post your first task in seconds</p>
             <div className="taskbuttons">
                 <button>Removalists</button>
                 <button>Home cleaning</button>

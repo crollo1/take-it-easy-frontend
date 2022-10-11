@@ -2,7 +2,6 @@
 import Home from "./Home";
 import axios from 'axios';
 
-
 function SignUp() {
 
 

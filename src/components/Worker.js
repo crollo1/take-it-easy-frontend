@@ -34,7 +34,7 @@ function Worker() {
 
             <div>
             <input className="workerinput"
-            type="date"
+            type="name"
             placeholder='Availability'
             />
             </div>

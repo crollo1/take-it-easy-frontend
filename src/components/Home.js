@@ -1,9 +1,10 @@
 
 import '../App.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 // import Button from 'react-bootstrap/Button';
 // import axios from 'axios';
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, json, Link, Route, Routes} from 'react-router-dom';
 
 import User from './User';
 import Login from './Login';
@@ -14,45 +15,49 @@ import Tasks from './Tasks';
 import PostTask from './PostTask';
 import BecomeHelper from './Worker';
 import MyProfile from './MyProfile';
+import axios from 'axios';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
 function Home( props ) {
 
-    // const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect( () => {
+
+      console.log('Component Mounting!');
+      fetchUser();
+
+    }, [] );
+
+  // function to set current user
+  function fetchUser () {
+
+      let token = "Bearer " + localStorage.getItem("jwt");
+      axios.get(`${BASE_BACKEND_URL}/current_user`, {
+
+        headers: {
+          'Authorization': token
+        }
+
+      })
+      .then(res => {
+
+        // TODO: BELOW MIGHT BE AN ERROR should be in object
+        setCurrentUser(res.data)
   
-    // // useEffect not usedEffect (might cause errors down the line)
-    // useEffect( () => {
+      })
+      .catch(err => console.warn(err))
+  };
 
-    //   console.log('Component Mounting!');
-    //   this.setCurrentUser();
+  // function to log-out user
+  function handleLogOut (){
 
-    // }); // useEffect
+    setCurrentUser(undefined)
+    localStorage.removeItem("jwt");
+    axios.defaults.headers.common['Authorization'] = undefined;
 
-    // // function to set current user
-    // setCurrentUser = () => {
-
-    //   let token = "Bearer " + localStorage.getItem("jwt");
-
-    //   axios.get(`${BASE_URL}/users/current`, {
-    //     headers: {
-    //       'Authorization': token
-    //     }
-    //   })
-    //   .then(res => {
-    //     this.setState({currentUser: res.data})
-    //   })
-    //   .catch(err => console.warn(err))
-
-    // };
-   
-    // // function to log-out user
-    // function handleLogOut (){
-    //     setCurrentUser(undefined)
-    //     localStorage.removeItem("jwt");
-    //     axios.defaults.headers.common['Authorization'] = undefined;
-
-    // }
+  }
 
   return (
 
@@ -65,18 +70,20 @@ function Home( props ) {
         </header>
         <hr />
       
+        {/* currentUser !== null */}
         <nav id="navbar">
             <div className="links">
-            <span id="leftLinks">    
-            <Link to="/">Home</Link>
-            <Link to="/categories">Categories</Link> 
-            <Link to="/tasks">Browse Tasks</Link> 
-            <Link to="/postTask">Post a Task</Link> 
-            <Link to="/worker">Become Worker</Link> 
-            </span>
             <span id="rightLinks">
             <Link to='/login'>Login</Link>
             <Link to='/signUp'>Sign Up</Link>
+            </span>
+            <span id="leftLinks">    
+            <Link to="/">Home</Link>
+            <Link to="/worker">Become Worker</Link> 
+
+            <Link to="/categories">Categories</Link> 
+            <Link to="/tasks">Browse Tasks</Link> 
+            <Link to="/postTask">Post a Task</Link> 
             </span>
             </div>
         </nav>
