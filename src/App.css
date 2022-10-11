@@ -83,9 +83,9 @@ button {
   border: none;
   color: white;
   background-color: #282c34;
-  border: 1px solid white;
-  box-shadow: 2.5px 5px #232121;
-  opacity: var(0.7);
+  /* border: 1px solid white; */
+  box-shadow: 1.5px 2.5px  #e0d3c9;
+  opacity: var(0.3);
 }
 
 button:hover {

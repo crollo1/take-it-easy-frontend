@@ -33,7 +33,7 @@ function Login( props ) {
 
         })
     
-    };
+    }; // handleSubmit
 
     const handleInput = (ev) => {
 
@@ -57,7 +57,7 @@ function Login( props ) {
     
         }
 
-    };
+    }; // handleInput
 
 
 
