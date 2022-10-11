@@ -19,15 +19,7 @@ function SignUp() {
             <input className="signupinput"
               name="name"
               type="name"
-              placeholder='First Name'
-            />
-            </div>
-            
-            <div>
-            <input className="signupinput"
-              name="display_name"
-              type="display_name"
-              placeholder='Last Name'
+              placeholder='Name'
             />
             </div>
             

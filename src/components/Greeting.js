@@ -11,7 +11,7 @@ function Greeting() {
 
             <div className="homebody">
                 <div className="getdone">
-                    <h1 className="homeheading">Get (randomtext) Done.</h1>
+                    <h1 className="homeheading">Get. Stuff. Done.</h1>
                 </div>
                 <div className="homeimage">
                     {/* <img src="/images/ProfessionalLandscaper.png" /> */}

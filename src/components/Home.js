@@ -33,27 +33,27 @@ function Home( props ) {
   // function to set current user
   function fetchUser () {
 
-      let token = "Bearer " + localStorage.getItem("jwt");
-      axios.get(`${BASE_BACKEND_URL}/current_user`, {
+      let token = localStorage.getItem("jwt");
 
-        headers: {
-          'Authorization': token
-        }
+      if (token){
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+        axios.get(`${BASE_BACKEND_URL}/current_user`)
+        .then(res => {
 
-      })
-      .then(res => {
+          // TODO: BELOW MIGHT BE AN ERROR should be in object
+          setCurrentUser(res.data)
+    
+        })
+        .catch(err => console.error(err))
 
-        // TODO: BELOW MIGHT BE AN ERROR should be in object
-        setCurrentUser(res.data)
-  
-      })
-      .catch(err => console.warn(err))
+      }
+
   };
 
   // function to log-out user
   function handleLogOut (){
 
-    setCurrentUser(undefined)
+    setCurrentUser(null)
     localStorage.removeItem("jwt");
     axios.defaults.headers.common['Authorization'] = undefined;
 
@@ -70,20 +70,36 @@ function Home( props ) {
         </header>
         <hr />
       
-        {/* currentUser !== null */}
         <nav id="navbar">
             <div className="links">
             <span id="rightLinks">
-            <Link to='/login'>Login</Link>
-            <Link to='/signUp'>Sign Up</Link>
+             
+        
+            { currentUser !== null ? (
+              <Link onClick={handleLogOut} to="/">Logout</Link>
+            ) : (
+              <> 
+              <Link to='/login'>Login</Link>
+              <Link to='/signUp'>Sign Up</Link>
+              </>
+            ) }
             </span>
             <span id="leftLinks">    
             <Link to="/">Home</Link>
-            <Link to="/worker">Become Worker</Link> 
 
-            <Link to="/categories">Categories</Link> 
-            <Link to="/tasks">Browse Tasks</Link> 
-            <Link to="/postTask">Post a Task</Link> 
+            { currentUser !== null ? (
+              <>
+              <Link to="/categories">Categories</Link> 
+              <Link to="/tasks">Browse Tasks</Link> 
+              <Link to="/postTask">Post a Task</Link> 
+              <Link to="/worker">Become Worker</Link>
+              </>
+            ) : (
+              <>
+              <Link to="/categories">Categories</Link> 
+              <Link to="/tasks">Browse Tasks</Link> 
+              </>
+            ) }
             </span>
             </div>
         </nav>
@@ -95,8 +111,8 @@ function Home( props ) {
             <Routes>
                 <Route path="/" element={ <Greeting/> }  />
                 <Route path="/user" element={ <User/> }/>
-                <Route path="/signUp" element={ <SignUp/> }/>
-                <Route path="/login" element={ <Login/> }/> 
+                <Route path="/signUp" element={ <SignUp fetchUser={fetchUser}/> }/>
+                <Route path="/login" element={ <Login fetchUser={fetchUser} user={currentUser}/> }/> 
                 <Route path="/categories" element={ <Categories/> } />
                 <Route path="/tasks" element={ <Tasks/> }/>
                 <Route path="/postTask" element={ <PostTask/> }/>

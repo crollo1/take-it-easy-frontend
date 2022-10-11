@@ -2,14 +2,16 @@
 import Home from "./Home";
 import axios from 'axios';
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
-function Login() {
+function Login( props ) {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState(''); 
+    const [password, setPassword] = useState('');
+    const navigatePush = useNavigate(); 
 
 
     const handleSubmit = (ev) => {
@@ -17,7 +19,19 @@ function Login() {
         ev.preventDefault();
         console.log('This is email and password:', email, password);
 
-        axios.post(`${BASE_BACKEND_URL}/login`,{ "email": email, "password": password });
+        axios.post(`${BASE_BACKEND_URL}/login`,{ "email": email, "password": password })
+        .then(res => {
+
+            localStorage.setItem("jwt", res.data.token);
+            props.fetchUser();
+            navigatePush('/');
+
+        })
+        .catch( err => {
+
+            console.error('Error submitting data', err);
+
+        })
     
     };
 
@@ -39,11 +53,9 @@ function Login() {
                 break;
             
             default: console.log('please try again');
+            // TODO: change default to error message
     
         }
-
-
-
 
     };
 
