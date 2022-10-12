@@ -83,14 +83,15 @@ input {
 }
 
 button {
+  font-family: 'Noto Sans Mono';
   padding: 5px 10px;
   border-radius: 10px;
   font-size: 15px;
   border: none;
   color: white;
-  background-color: #282c34;
+  background-color: rgba(255, 255, 255, 0.3);
   /* border: 1px solid white; */
-  box-shadow: 1.5px 2.5px  #e0d3c9;
+  box-shadow: 1.5px 2.5px  rgba(255, 255, 255, 0.5);
   opacity: var(0.3);
 }
 
