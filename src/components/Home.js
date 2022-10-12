@@ -77,7 +77,10 @@ function Home( props ) {
              
         
             { currentUser !== null ? (
+              <>
+              <Link to='/profile'>Profile</Link>
               <Link onClick={handleLogOut} to="/">Logout</Link>
+              </>
             ) : (
               <> 
               <Link to='/login'>Login</Link>

@@ -51,7 +51,10 @@ function MyProfile() {
     return (
 
         <div className="profile">
-            <h2>My Profile</h2>
+            <h1>Welcome {currentUser.name}</h1>
+            <h2 className="yourProfile">Your profile</h2>
+
+            
         </div>
 
     );

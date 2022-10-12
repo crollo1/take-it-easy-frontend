@@ -183,13 +183,16 @@ button {
 .taskDetails {
   font-family: 'Noto Sans Mono';
   max-width: 30vw;
-  margin: 10px;
+  margin: 20px;
   padding: 5px;
   color: white;
   border: 2px solid white;
   border-radius: 20px;
   background-color: rgba(255, 254, 254, 0.2);
-  cursor: pointer;
+}
+
+.taskDetails:hover {
+  transform: scale(1.05);
 }
 
 .postTask {
@@ -226,4 +229,8 @@ button {
 
 .routes {
   padding: 20px;
+}
+
+.yourProfile {
+  margin-top: 5px;
 }

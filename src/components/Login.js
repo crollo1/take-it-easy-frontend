@@ -24,7 +24,7 @@ function Login( props ) {
 
             localStorage.setItem("jwt", res.data.token);
             props.fetchUser();
-            navigatePush('/');
+            navigatePush('/profile');
 
         })
         .catch( err => {
