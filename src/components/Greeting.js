@@ -1,5 +1,6 @@
 
 import Home from "./Home";
+import {BrowserRouter as Router, json, Link, Route, Routes} from 'react-router-dom';
 
 function Greeting() {
 
@@ -19,7 +20,9 @@ function Greeting() {
             </div>
 
             <p className="posttaskheading">Post your first task in seconds</p>
+            {/* <Link to="/postTask"> */}
             <div className="taskbuttons">
+
                 <button>Removalists</button>
                 <button>Home cleaning</button>
                 <button>Furniture assembly</button>
@@ -32,6 +35,7 @@ function Greeting() {
                 <button>App development</button>
                 <button>Something else</button>
             </div>
+            {/* </Link> */}
         </div>
 
     );

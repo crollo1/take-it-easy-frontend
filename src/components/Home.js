@@ -36,6 +36,7 @@ function Home( props ) {
       let token = localStorage.getItem("jwt");
 
       if (token){
+
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         axios.get(`${BASE_BACKEND_URL}/current_user`)
         .then(res => {
@@ -107,15 +108,19 @@ function Home( props ) {
       
         <div className="routes">
             <Routes>
+              {/* { currentUser && */}
+                {/* <> */}
                 <Route path="/" element={ <Greeting/> }  />
                 <Route path="/user" element={ <User/> }/>
                 <Route path="/signUp" element={ <SignUp fetchUser={fetchUser}/> }/>
-                <Route path="/login" element={ <Login fetchUser={fetchUser} user={currentUser}/> }/> 
+                <Route path="/login" element={ <Login fetchUser={fetchUser} /> }/> 
                 <Route path="/categories" element={ <Categories/> } />
                 <Route path="/tasks" element={ <Tasks/> }/>
-                <Route path="/postTask" element={ <PostTask/> }/>
-                <Route path="/worker" element={ <BecomeHelper/> }/>
+                <Route path="/postTask" element={ <PostTask fetchUser={fetchUser} /> }/>
+                <Route path="/worker" element={ <BecomeHelper fetchUser={fetchUser}/> }/>
                 <Route path="/profile" element={ <MyProfile/> }/>
+                {/* </> */}
+              {/* } */}
             </Routes>
         </div>
 

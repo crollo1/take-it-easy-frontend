@@ -1,15 +1,15 @@
 
 import Home from "./Home";
+import axios from "axios";
 import SignUp from "./SignUp";
 
 function Worker() {
 
 
-
     return (
 
         <div className="worker">
-            <h2>Become a Worker</h2>
+            <h1>Become a Tasker</h1>
 
             <SignUp />
 
