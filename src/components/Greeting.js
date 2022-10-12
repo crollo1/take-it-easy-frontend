@@ -6,6 +6,7 @@ import {useNavigate} from 'react-router-dom';
 function Greeting() {
 
     const navigatePush = useNavigate(); 
+    const currentUser = localStorage.getItem('jwt');
 
     function handleClick(){
         navigatePush('/postTask');
@@ -24,13 +25,12 @@ function Greeting() {
                     {/* <img src="/images/ProfessionalLandscaper.png" /> */}
                 </div>
             </div>
-
-            <p className="posttaskheading">Post your first task in seconds</p>
-            {/* <Link to="/postTask"> */}
+            
             <div className="taskbuttons">
-
-                {/* { currentUser && 
-                <>                 */}
+            { currentUser && 
+                <> 
+                <p className="posttaskheading">Post your first task in seconds</p>
+                                
                     <button onClick={handleClick}>Removalists</button>
                     <button onClick={handleClick}>Home cleaning</button>
                     <button onClick={handleClick}>Furniture assembly</button>
@@ -42,8 +42,8 @@ function Greeting() {
                     <button onClick={handleClick}>Catering</button>
                     <button onClick={handleClick}>App development</button>
                     <button onClick={handleClick}>Something else</button>
-                {/* </>
-                } */}
+                </>
+            }
             </div>
             {/* </Link> */}
         </div>
