@@ -14,6 +14,21 @@ function MyProfile() {
     });
     const [loading, setLoading] = useState( false );
     const [error, setError]     = useState( null );
+    const [userTasks, setUserTasks] = useState([]);
+
+    const fetchUserTasks = async () => {
+
+        try {
+
+            const res = await axios.get(`${BASE_BACKEND_URL}/tasks`)
+            console.log(res.data);
+            setUserTasks(res.data);
+
+        } catch (err) {
+            console.error('Error loading tasks', err );
+        }
+
+    } // fetchUserTasks
 
     useEffect(() => {
 
@@ -40,11 +55,14 @@ function MyProfile() {
         }) // then 
         .catch(err => {
 
-            console.log('Error loading for My profile current user:', err)
+            console.log('Error loading My profile for current user:', err)
             setLoading(false);
             setError(err)
         });
-        // array if data comes from the router, so not responding to data keep the array empty. This then works asa componentDidMount - loads one time
+        // array if data comes from the router, so not responding to data keep the array empty. This then works like componentDidMount - loads one time
+
+        fetchUserTasks();
+        //  <--- UNCOMMENT LATER
 
     }, [] );// Use effect function 
 
@@ -54,10 +72,22 @@ function MyProfile() {
             <h1>Welcome {currentUser.name}</h1>
             <h2 className="yourProfile">Your profile</h2>
 
-            
+            {userTasks.map( t =>
+               <div className="userTaskDetails" key={t._id}>
+                    <h4><strong>Name:</strong> {t.name}</h4>
+                    <p><strong>Date:</strong> {t.startDate}</p>
+                    <p><strong>Location: </strong>{t.location}</p>
+                    <p><strong>Area:</strong> {t.area}</p>
+                    <p><strong>Description:</strong> {t.fullDescription}</p>
+                    <p><strong>Price:</strong> ${t.price}</p>
+               </div> 
+              ) 
+            }
+            {/* <--- UNCOMMENT LATER */}
+
         </div>
 
-    );
+    ); // return
 
 
 }; // MyProfile

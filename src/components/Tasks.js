@@ -22,13 +22,13 @@ function Tasks() {
         } catch (err) {
             console.error('Error loading tasks', err );
         }
-    }
+    } // fetchTasks
         
     useEffect(() => {
 
         fetchTasks();
 
-    }, [] )
+    }, [] ) // useEffect
 
 
 
@@ -46,12 +46,12 @@ function Tasks() {
                 allTasks.map( t => 
                     
                     <div className="taskDetails" key={t._id}>
-                    <h4>Name: {t.name}</h4>
-                    <p>Date: {t.startDate}</p>
-                    <p>Location: {t.location}</p>
-                    <p>Area: {t.area}</p>
-                    <p>Summary Description: {t.fullDescription}</p>
-                    <p>Price: ${t.price}</p>
+                    <h4><strong>Name:</strong> {t.name}</h4>
+                    <p><strong>Date: </strong>{t.startDate}</p>
+                    <p><strong>Location: </strong>{t.location}</p>
+                    <p><strong>Area:</strong> {t.area}</p>
+                    <p><strong>Description:</strong> {t.fullDescription}</p>
+                    <p><strong>Price:</strong> ${t.price}</p>
                     </div> 
 
                 )
@@ -60,7 +60,7 @@ function Tasks() {
         
         </div>
 
-    );
+    ); // return
 
 }; // Tasks
 
