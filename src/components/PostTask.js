@@ -12,6 +12,11 @@ function PostTask( props ) {
 
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
+    const [price, setPrice] = useState(0.00);
+    const [location, setLocation] = useState('');
+    const [area, setArea] = useState('');
+    const [description, setDescription] = useState('')
+
     const navigatePush = useNavigate();  
 
     const handleSubmit = (ev) => {
@@ -19,7 +24,15 @@ function PostTask( props ) {
         ev.preventDefault();
         console.log('Post task:', name, date);
 
-        axios.post(`${BASE_BACKEND_URL}/postTask`,{ "name": name, "date": date })
+        axios.post(`${BASE_BACKEND_URL}/postTask`,
+        { 
+            "name": name, 
+            "startDate": date,
+            "fullDescription": description,
+            "price": price,
+            "location": location,
+            "area": area
+        })
         .then(res => {
 
             localStorage.setItem("jwt", res.data.token);
@@ -46,10 +59,25 @@ function PostTask( props ) {
                 setName(ev.target.value)
                 break;
 
-            case 'date':
+            case 'price':
                 // setState({email: ev.target.value})
-                setDate(ev.target.value)
+                setPrice(ev.target.value)
                 break;
+
+            case 'location':
+                // setState({email: ev.target.value})
+                setLocation(ev.target.value)
+                break;
+
+            case 'area':
+                // setState({email: ev.target.value})
+                setArea(ev.target.value)
+                break;
+
+            case 'fullDescription':
+                // setState({email: ev.target.value})
+                setDescription(ev.target.value)
+                break;    
             
             default: console.log('please try again');
             // TODO: change default to error message
@@ -69,15 +97,48 @@ function PostTask( props ) {
                 <input className="posttaskinput" onChange={handleInput}
                 name="name"
                 type="name"
+                required
                 placeholder='e.g. Help me move my fridge'
                 />
                 </div>
                 <DatePicker
-                dateFormat="dd/MM/yyyy"
+                className="datePicker"
+                dateFormat="yyyy-MM-dd"
                 selected={date}
+                placeholderText="Select date"
                 // onSelect={setDate} //when day is clicked
                 onChange={(date => setDate(date))} //only when value has changed
                 />
+                <div>
+                <input className="posttaskinput" onChange={handleInput}
+                name="location"
+                type="name"
+                required
+                placeholder='Location'
+                />
+                </div>
+                <div>
+                <input className="posttaskinput" onChange={handleInput}
+                name="area"
+                type="text"
+                placeholder='Area'
+                />
+                </div>
+                <div>
+                <input className="posttaskinput" onChange={handleInput}
+                name="price"
+                type="number"
+                placeholder='Price'
+                />
+                </div>
+                <div>
+                <textarea rows="4" cols="23" className="posttaskinput" onChange={handleInput}
+                name="fullDescription"
+                type="textarea"
+                placeholder='Task description'
+                />
+                </div>
+                
                 {/* <div> */}
                 {/* <input className="posttaskinput"
                 onChange={date => console.log(date)}

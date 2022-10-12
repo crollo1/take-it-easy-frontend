@@ -24,6 +24,10 @@ h2 {
   margin-top: 30px;
 }
 
+.postTask h2 {
+  margin-top: 10px;
+}
+
 h3 {
   margin-top: 0px;
   margin-bottom: 10px;
@@ -149,12 +153,7 @@ button {
   margin-top: 10px;
 }
 
-.posttaskinput {
-  padding: 15px;
-  border-radius: 20px;
-}
-
-.workerinput {
+.posttaskinput, .datePicker, .workerinput {
   padding: 15px;
   border-radius: 20px;
 }
@@ -179,6 +178,25 @@ button {
   font-weight: bold;
 }
 
+.taskDetails {
+  margin: 10px;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+}
 
+.postTask {
 
+  background-color: rgba(253, 253, 253, 0.1);
+  width: 400px;
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 20px;
+  /* margin-bottom: 20px; */
+  border-radius: 30px;
+  /* border: 2px solid white; */
+}
 
+.routes {
+  padding: 20px;
+}

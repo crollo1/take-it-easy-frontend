@@ -1,31 +1,36 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import { ListGroup } from 'react-bootstrap';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
 function Tasks() {
 
-    // // render task results on page
-    // const [allTasks, setAllTasks] = useState([]);
-    // // const navigatePush = useNavigate();
+    // render task results on page
+    const [allTasks, setAllTasks] = useState([]);
     
-    // useEffect(() => {
+    const fetchTasks = async () => {
 
-    //     const tasks = axios.get(`${BASE_BACKEND_URL}/tasks`,{ "name": name, "date": date, "summaryDescription": summaryDescription, "fullDescription": fullDescription, "location": location })
-    //     .then(res => {
+        try {
 
-    //         tasks = res.data // save the array of results into state
+            const res = await axios.get(`${BASE_BACKEND_URL}/tasks`)
+            console.log(res.data);
+            setAllTasks(res.data);
 
-    //     })
-    //     .catch( err => {
+        } catch (err) {
+            console.error('Error loading tasks', err );
+        }
+    }
+        
+    useEffect(() => {
+
+        fetchTasks();
+
+    }, [] )
 
 
-
-    //     })
-
-    // }, [] )
 
     return (
 
@@ -35,6 +40,22 @@ function Tasks() {
             <input type="text" />
             {' '}{' '}
             <button>Search</button>
+            <div>
+              {
+                allTasks.map( t => 
+                    
+                    <div className="taskDetails" key={t._id}>
+                    <h4>Name: {t.name}</h4>
+                    <p>Date: {t.startDate}</p>
+                    <p>Location: {t.location}</p>
+                    <p>Area:{t.area}</p>
+                    <p>Summary Description: {t.summaryDescription}</p>
+                    <p>Price:${t.price}</p>
+                    </div> 
+
+                )
+              }  
+            </div>
         </div>
         </div>
 
