@@ -29,17 +29,21 @@ function Greeting() {
             {/* <Link to="/postTask"> */}
             <div className="taskbuttons">
 
-                <button onClick={handleClick}>Removalists</button>
-                <button onClick={handleClick}>Home cleaning</button>
-                <button onClick={handleClick}>Furniture assembly</button>
-                <button onClick={handleClick}>Deliveries</button>
-                <button onClick={handleClick}>Gardening & Landscaping</button>
-                <br />
-                <button onClick={handleClick}>Painting</button>
-                <button onClick={handleClick}>Handyperson</button>
-                <button onClick={handleClick}>Catering</button>
-                <button onClick={handleClick}>App development</button>
-                <button onClick={handleClick}>Something else</button>
+                {/* { currentUser && 
+                <>                 */}
+                    <button onClick={handleClick}>Removalists</button>
+                    <button onClick={handleClick}>Home cleaning</button>
+                    <button onClick={handleClick}>Furniture assembly</button>
+                    <button onClick={handleClick}>Deliveries</button>
+                    <button onClick={handleClick}>Gardening & Landscaping</button>
+                    <br />
+                    <button onClick={handleClick}>Painting</button>
+                    <button onClick={handleClick}>Handyperson</button>
+                    <button onClick={handleClick}>Catering</button>
+                    <button onClick={handleClick}>App development</button>
+                    <button onClick={handleClick}>Something else</button>
+                {/* </>
+                } */}
             </div>
             {/* </Link> */}
         </div>

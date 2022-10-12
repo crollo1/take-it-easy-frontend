@@ -69,11 +69,13 @@ function Login( props ) {
             <form className="loginform" onSubmit={handleSubmit}>
                 <input className="loginform"
                 onChange={handleInput}
+                required
                 name="email"
                 type="email"
                 placeholder='Enter Email'/>
                 <input className="loginform"
                 onChange={handleInput}
+                required
                 name="password"
                 type="password"
                 placeholder='Enter Password'/>

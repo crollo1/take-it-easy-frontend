@@ -74,6 +74,7 @@ function SignUp( props ) {
             <div>
             <input className="signupinput"
               onChange={handleInput}
+              required
               name="name"
               type="name"
               placeholder='Name'
@@ -83,6 +84,7 @@ function SignUp( props ) {
             <div>
             <input className="signupinput"
               onChange={handleInput}
+              required
               name="email"
               type="email"
               placeholder='Enter Email'
@@ -92,6 +94,7 @@ function SignUp( props ) {
             <div>
             <input className="signupinput"
               onChange={handleInput}
+              required
               name="password"
               type="password"
               placeholder='Enter Password'

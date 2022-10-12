@@ -36,10 +36,11 @@ function Tasks() {
 
         <div className="tasks">
             <h2>Browse Tasks</h2>
-            <div className="searchbar">
+            <div id="searchbar">
             <input type="text" />
             {' '}{' '}
             <button>Search</button>
+            </div>
             <div>
               {
                 allTasks.map( t => 
@@ -48,15 +49,15 @@ function Tasks() {
                     <h4>Name: {t.name}</h4>
                     <p>Date: {t.startDate}</p>
                     <p>Location: {t.location}</p>
-                    <p>Area:{t.area}</p>
-                    <p>Summary Description: {t.summaryDescription}</p>
-                    <p>Price:${t.price}</p>
+                    <p>Area: {t.area}</p>
+                    <p>Summary Description: {t.fullDescription}</p>
+                    <p>Price: ${t.price}</p>
                     </div> 
 
                 )
               }  
             </div>
-        </div>
+        
         </div>
 
     );
