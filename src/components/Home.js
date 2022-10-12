@@ -92,7 +92,7 @@ function Home( props ) {
 
             { currentUser !== null ? (
               <>
-              <Link to="/postTask">Post a Task</Link> 
+              {/* <Link to="/postTask">Post a Task</Link>  */}
               <Link to="/worker">Become a Tasker</Link>
               </>
             ) : (

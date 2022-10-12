@@ -3,11 +3,12 @@ import Home from "./Home";
 import axios from 'axios';
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
 function PostTask( props ) {
-
 
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
@@ -71,17 +72,16 @@ function PostTask( props ) {
                 placeholder='e.g. Help me move my fridge'
                 />
                 </div>
-                <div>
-                <input className="posttaskinput"
-                onChange={handleInput}
-                type="date"
+                <DatePicker
+                dateFormat="dd/MM/yyyy"
+                selected={date}
+                // onSelect={setDate} //when day is clicked
+                onChange={(date => setDate(date))} //only when value has changed
                 />
-                </div>
-                {/* <div>
-                <input className="posttaskinput" onChange={handleInput}
-                name="summaryDescription"
-                type="summaryDescription"
-                placeholder='task summary'
+                {/* <div> */}
+                {/* <input className="posttaskinput"
+                onChange={date => console.log(date)}
+                type="date"
                 />
                 </div> */}
                 <div className="posttaskbutton">

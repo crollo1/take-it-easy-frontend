@@ -1,9 +1,15 @@
 
 import Home from "./Home";
 import {BrowserRouter as Router, json, Link, Route, Routes} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 function Greeting() {
 
+    const navigatePush = useNavigate(); 
+
+    function handleClick(){
+        navigatePush('/postTask');
+    } 
 
     return (
 
@@ -23,17 +29,17 @@ function Greeting() {
             {/* <Link to="/postTask"> */}
             <div className="taskbuttons">
 
-                <button>Removalists</button>
-                <button>Home cleaning</button>
-                <button>Furniture assembly</button>
-                <button>Deliveries</button>
-                <button>Gardening & Landscaping</button>
+                <button onClick={handleClick}>Removalists</button>
+                <button onClick={handleClick}>Home cleaning</button>
+                <button onClick={handleClick}>Furniture assembly</button>
+                <button onClick={handleClick}>Deliveries</button>
+                <button onClick={handleClick}>Gardening & Landscaping</button>
                 <br />
-                <button>Painting</button>
-                <button>Handyperson</button>
-                <button>Catering</button>
-                <button>App development</button>
-                <button>Something else</button>
+                <button onClick={handleClick}>Painting</button>
+                <button onClick={handleClick}>Handyperson</button>
+                <button onClick={handleClick}>Catering</button>
+                <button onClick={handleClick}>App development</button>
+                <button onClick={handleClick}>Something else</button>
             </div>
             {/* </Link> */}
         </div>
