@@ -16,6 +16,7 @@ import PostTask from './PostTask';
 import BecomeHelper from './Worker';
 import MyProfile from './MyProfile';
 import axios from 'axios';
+import TaskMap from './TaskMap'
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
@@ -122,6 +123,7 @@ function Home( props ) {
                 <Route path="/postTask" element={ <PostTask fetchUser={fetchUser} /> }/>
                 <Route path="/worker" element={ <BecomeHelper fetchUser={fetchUser}/> }/>
                 <Route path="/profile" element={ <MyProfile/> }/>
+                <Route path="/taskmap" element={<TaskMap/>} />
                 {/* </> */}
               {/* } */}
             </Routes>
