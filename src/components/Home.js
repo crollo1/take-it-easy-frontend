@@ -17,7 +17,7 @@ import BecomeHelper from './Worker';
 import MyProfile from './MyProfile';
 import axios from 'axios';
 import TaskMap from './TaskMap';
-import TaskShow from './TaskShow';
+import TaskPage from './TaskPage';
 
 let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
@@ -125,7 +125,7 @@ function Home( props ) {
                 <Route path="/worker" element={ <BecomeHelper currentUser={currentUser}/> }/>
                 <Route path="/profile" element={ <MyProfile currentUser={currentUser}/> }/>
                 <Route path="/taskmap" element={<TaskMap/>} />
-                <Route path="/task/:id" element={<TaskShow/>} />
+                <Route path="/task" element={<TaskPage currentUser={currentUser}/>} />
                 </> 
               }
             </Routes>

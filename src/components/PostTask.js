@@ -18,11 +18,6 @@ function PostTask( props ) {
 
     const navigatePush = useNavigate(); 
     
-    // useEffect( () => {
-
-    //     console.log('This is the users id ', props.currentUser);
-  
-    // }, [] );
 
     const handleSubmit = (ev) => {
 
@@ -37,7 +32,7 @@ function PostTask( props ) {
             "price": price,
             "location": location,
             "area": area,
-            "postedBy": props.currentUser._id
+            // "postedBy": props.currentUser._id
         })
         .then(res => {
 
