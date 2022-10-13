@@ -1,7 +1,7 @@
 
 import axios from 'axios';
-import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {useNavigate, useParams} from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -12,9 +12,9 @@ if( process.env.NODE_ENV === 'development'){
 } else {
     BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 }
-// let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
-function PostTask( props ) {
+
+function EditTask(){
 
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
@@ -24,15 +24,38 @@ function PostTask( props ) {
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
 
+    const [task, setTask] = useState();
     const navigatePush = useNavigate(); 
+
+
+    const params = useParams();
+
+    useEffect( () => {
+
+        async function fetchTasks(){
+            try {
+
+                const res = await axios.get( `${BASE_BACKEND_URL}/tasks/${params.id}` )
+                setTask(res.data);
+
+            } catch( err ){
+
+                console.error('error fetching task', err);
+                // setError(err)
+
+            }
+        }
+        fetchTasks();
+
+    }, [] ); 
 
 
     const handleSubmit = (ev) => {
 
         ev.preventDefault();
-        console.log('Post task:', name, date);
+        console.log('Edit task:', name, date);
 
-        axios.post(`${BASE_BACKEND_URL}/postTask`,
+        axios.post(`${BASE_BACKEND_URL}/tasks/:id`,
         { 
             "name": name, 
             "startDate": date,
@@ -55,8 +78,8 @@ function PostTask( props ) {
             console.error('Error submitting data', err);
 
         })
-    
-    }; // handleSubmit
+
+    }
 
     const handleInput = (ev) => {
 
@@ -87,11 +110,11 @@ function PostTask( props ) {
             case 'fullDescription':
                 // setState({email: ev.target.value})
                 setDescription(ev.target.value)
-                break; 
-                
+                break;   
+            
             case 'address':
                 setAddress(ev.target.value)
-                break;    
+                break;
             
             default: console.log('please try again');
             // TODO: change default to error message
@@ -101,27 +124,26 @@ function PostTask( props ) {
     }; // handleInput
 
     return (
+        <div>
+            <h2>Edit your task</h2>
 
-        <div className="postTask">
-            <h2>Post Task</h2>
-            <p className="posttasktext">In a few words, what do you need done?</p>
-
-            
-            <form className="posttaskform" onSubmit={handleSubmit} >
+            {task !== undefined ? 
+                <form className="posttaskform" onSubmit={handleSubmit} >
 
                 <div>
                 <input className="posttaskinput" onChange={handleInput}
                 name="name"
                 type="name"
                 required
-                placeholder='e.g. Help me move my fridge'
+                value={task.name}
                 />
                 </div>
                 <DatePicker
                 className="datePicker"
                 dateFormat="yyyy-MM-dd"
                 selected={date}
-                placeholderText="Select date"
+                // placeholderText="Select date"
+                value={task.startDate}
                 // onSelect={setDate} //when day is clicked
                 onChange={(date => setDate(date))} //only when value has changed
                 />
@@ -130,7 +152,7 @@ function PostTask( props ) {
                 name="address"
                 type="text"
                 required
-                placeholder='Address'
+                value={task.address}
                 />
                 </div>
                 <div>
@@ -138,28 +160,28 @@ function PostTask( props ) {
                 name="location"
                 type="name"
                 required
-                placeholder='Location'
+                value={task.location}
                 />
                 </div>
                 <div>
                 <input className="posttaskinput" onChange={handleInput}
                 name="area"
                 type="text"
-                placeholder='Area'
+                value={task.area}
                 />
                 </div>
                 <div>
                 <input className="posttaskinput" onChange={handleInput}
                 name="price"
                 type="number"
-                placeholder='Price'
+                value={task.price}
                 />
                 </div>
                 <div>
                 <textarea rows="4" cols="23" className="posttaskinput" onChange={handleInput}
                 name="fullDescription"
                 type="textarea"
-                placeholder='Task description'
+                value={task.fullDescription}
                 />
                 </div>
                 
@@ -173,15 +195,13 @@ function PostTask( props ) {
                 {/* <button>On date</button> */}
                 <button>Submit Task</button>
                 {/* <button>I'm Flexible</button> */}
-                </div>
+                </div> 
             </form>
-           
+            : <h2>Error loading form</h2>
+            }
 
         </div>
+    )// return
+} // EditTask
 
-    );
-
-
-}; // PostTask
-
-export default PostTask;
+export default EditTask;

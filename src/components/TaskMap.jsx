@@ -46,14 +46,14 @@ function TaskMap( props ) {
 
     const defaultProps = {
         center: {
-        lat: 10.99835602,
-        lng: 77.01502627
+            lat: 10.99835602,
+            lng: 77.01502627
         },
         zoom: 11
     };
     
     return (
-        <div style={{ height: '100vh', width: '100%' }}> 
+        <div style={{ height: '80vh', width: '60%' }}> 
             <h1>Hello World </h1>
             
             <GoogleMapReact
@@ -65,15 +65,17 @@ function TaskMap( props ) {
                     lat={10.955413}
                     lng={77.337844}
                     text="My Marker"
+                    key={1}
                 /> 
                 {/* to add additional  */}
 
-                {tasks.slice(0,1).map(t => ( 
+                {tasks.map(t => ( 
                   
                   <TaskMarker 
                     lat={t.gpsLocation.coordinates[1]}
                     lng={t.gpsLocation.coordinates[0]}
                     text={t.name}
+                    key={t._id}
                   />
 
                 ))}

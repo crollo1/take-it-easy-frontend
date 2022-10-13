@@ -18,6 +18,7 @@ import MyProfile from './MyProfile';
 import axios from 'axios';
 import TaskMap from './TaskMap';
 import TaskPage from './TaskPage';
+import EditTask from './EditTask';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
@@ -131,8 +132,10 @@ function Home( props ) {
                 <Route path="/postTask" element={ <PostTask currentUser={currentUser} /> }/>
                 <Route path="/worker" element={ <BecomeHelper currentUser={currentUser}/> }/>
                 <Route path="/profile" element={ <MyProfile currentUser={currentUser}/> }/>
-                <Route path="/taskmap" element={<TaskMap/>} />
-                <Route path="/task" element={<TaskPage currentUser={currentUser}/>} />
+                <Route path="/taskmap" element={<TaskMap currentUser={currentUser}/>} />
+                <Route path="/tasks/:id" element={<TaskPage currentUser={currentUser}/>} />
+                <Route path="/tasks/:id/edit" element={<EditTask currentUser={currentUser}/>} />
+
                 </> 
               }
             </Routes>

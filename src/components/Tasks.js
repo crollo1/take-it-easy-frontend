@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import TaskMap from './TaskMap';
+import { Link } from 'react-router-dom';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
@@ -46,19 +48,20 @@ function Tasks() {
             {' '}{' '}
             <button>Search</button>
             </div>
+            <TaskMap />
             <div>
               {
                 allTasks.map( t => 
-                    
+                    <Link to={`/tasks/${t._id}`} >
                     <div className="taskDetails" key={t._id}>
-                    <h4><strong>Name:</strong> {t.name}</h4>
-                    <p><strong>Date: </strong>{t.startDate}</p>
-                    <p><strong>Location: </strong>{t.location}</p>
-                    <p><strong>Area:</strong> {t.area}</p>
-                    <p><strong>Description:</strong> {t.fullDescription}</p>
-                    <p><strong>Price:</strong> ${t.price}</p>
+                        <h4><strong>Name:</strong> {t.name}</h4>
+                        <p><strong>Date: </strong>{t.startDate}</p>
+                        <p><strong>Location: </strong>{t.location}</p>
+                        <p><strong>Area:</strong> {t.area}</p>
+                        <p><strong>Description:</strong> {t.fullDescription}</p>
+                        <p><strong>Price:</strong> ${t.price}</p>
                     </div> 
-
+                    </Link>
                 )
               }  
             </div>
