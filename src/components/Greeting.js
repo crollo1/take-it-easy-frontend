@@ -34,13 +34,11 @@ function Greeting( props ) {
 
             <Swiper
                 modules={[ Navigation, Pagination, Autoplay ]}
-                navigation
+                // navigation
                 autoplay={ {delay: 3000} } 
-                pagination={{ clickable: true }}
+                pagination
                 spaceBetween={50}
                 slidesPerView={1}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 >
                 <SwiperSlide> <img src="/images/babysitting.jpg" alt="" /> </SwiperSlide>
                 <SwiperSlide> <img src="/images/catering.jpg" alt="" /> </SwiperSlide>

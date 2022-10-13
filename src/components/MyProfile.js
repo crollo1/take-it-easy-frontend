@@ -23,7 +23,6 @@ function MyProfile( props ) {
             const res = await axios.get(`${BASE_BACKEND_URL}/tasks`)
             console.log(res.data); // this is an array
             console.log(props.currentUser._id);
-            const basket = [];
             const currentUserTasks = res.data.filter(tasks => tasks.postedBy === props.currentUser._id ? tasks : '')
             console.log(' current user tasks', currentUserTasks);
             setUserTasks(currentUserTasks);
@@ -44,7 +43,7 @@ function MyProfile( props ) {
     return (
 
         <div className="profile">
-            <h1>Welcome {props.currentUser.name}</h1>
+            <h1>Welcome {props.currentUser !== null ? props.currentUser.name : ''}</h1>
             <h2 className="yourProfile">Your profile</h2>
 
             {userTasks.map( t =>

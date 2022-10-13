@@ -16,7 +16,8 @@ import PostTask from './PostTask';
 import BecomeHelper from './Worker';
 import MyProfile from './MyProfile';
 import axios from 'axios';
-import TaskMap from './TaskMap'
+import TaskMap from './TaskMap';
+import TaskShow from './TaskShow';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
@@ -112,20 +113,22 @@ function Home( props ) {
       
         <div className="routes">
             <Routes>
-              {/* { currentUser && */}
-                {/* <> */}
-                <Route path="/" element={ <Greeting currentUser={currentUser}/> }  />
-                <Route path="/user" element={ <User/> }/>
-                <Route path="/signUp" element={ <SignUp fetchUser={fetchUser}/> }/>
-                <Route path="/login" element={ <Login fetchUser={fetchUser} /> }/> 
+              <Route path="/" element={ <Greeting currentUser={currentUser}/> }  />
+              <Route path="/user" element={ <User/> }/>
+              <Route path="/signUp" element={ <SignUp fetchUser={fetchUser}/> }/>
+              <Route path="/login" element={ <Login fetchUser={fetchUser} /> }/> 
+              <Route path="/tasks" element={ <Tasks/> }/>
+
+              { currentUser &&
+                <>
                 <Route path="/categories" element={ <Categories/> } />
-                <Route path="/tasks" element={ <Tasks/> }/>
                 <Route path="/postTask" element={ <PostTask currentUser={currentUser} /> }/>
                 <Route path="/worker" element={ <BecomeHelper currentUser={currentUser}/> }/>
                 <Route path="/profile" element={ <MyProfile currentUser={currentUser}/> }/>
                 <Route path="/taskmap" element={<TaskMap/>} />
-                {/* </> */}
-              {/* } */}
+                <Route path="/task/:id" element={<TaskShow/>} />
+                </> 
+              }
             </Routes>
         </div>
 
