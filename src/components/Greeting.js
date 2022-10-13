@@ -2,6 +2,13 @@
 import Home from "./Home";
 import {BrowserRouter as Router, json, Link, Route, Routes} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+
 
 function Greeting( props ) {
 
@@ -24,6 +31,29 @@ function Greeting( props ) {
                     {/* <img src="/images/ProfessionalLandscaper.png" /> */}
                 </div>
             </div>
+
+            <Swiper
+                modules={[ Navigation, Pagination, Autoplay ]}
+                navigation
+                autoplay={ {delay: 3000} } 
+                pagination={{ clickable: true }}
+                spaceBetween={50}
+                slidesPerView={1}
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log(swiper)}
+                >
+                <SwiperSlide> <img src="/images/babysitting.jpg" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/catering.jpg" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/cleaning.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/dogwalking.jpg" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/electrician.jpg" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/furniture.jpg" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/painter.jpg" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/landscaping.png" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/poolcleaning.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src="/images/removalists.jpg" alt="" /> </SwiperSlide>
+                
+            </Swiper>
 
             <div className="taskbuttons">
             { props.currentUser !== null ? ( 
