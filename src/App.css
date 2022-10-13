@@ -183,14 +183,17 @@ button {
 
 .taskDetails {
   font-family: 'Noto Sans Mono';
-  max-width: 30vw;
-  margin: 20px;
+  max-width: 50vw;
+  margin: 30px;
   padding: 5px;
   color: white;
   border: 2px solid white;
   border-radius: 20px;
   background-color: rgba(255, 254, 254, 0.2);
   cursor: pointer;
+  /* display: grid;
+  grid-column:auto; */
+
 }
 
 .taskDetails:hover {
@@ -269,4 +272,7 @@ button {
   max-height: 50vh;
 }
 
-
+.googleMap {
+  border-radius: 10px !important;
+  text-align: center;
+}

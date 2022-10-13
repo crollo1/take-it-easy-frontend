@@ -48,7 +48,7 @@ function TaskPage( props ) {
 
         <div>
             {task !== undefined ? 
-            <div>
+            <div className='userTaskDetails'>
                 <h4><strong>Name:</strong> {task.name}</h4>
                 <p><strong>Date: </strong>{task.startDate}</p>
                 <p><strong>Location: </strong>{task.location}</p>

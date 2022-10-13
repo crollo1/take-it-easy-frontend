@@ -15,18 +15,8 @@ if( process.env.NODE_ENV === 'development'){
 
 function MyProfile( props ) {
 
-    // const [currentUser, setCurrentUser] = useState({
-    //     name: '',
-    //     password: '',
-    // });
-    // const [loading, setLoading] = useState( false );
-    // const [error, setError]     = useState( null );
     const [userTasks, setUserTasks] = useState([]);
 
-    // const fetchUserTasks = async () => {
-
-        
-    // } // fetchUserTasks
     
     useEffect( () => {
         

@@ -46,15 +46,17 @@ function TaskMap( props ) {
 
     const defaultProps = {
         center: {
-            lat: 10.99835602,
-            lng: 77.01502627
+            lat: -33.87598491203423,
+            lng: 151.21073825166687, 
         },
-        zoom: 11
+        zoom: 10
     };
     
     return (
-        <div style={{ height: '80vh', width: '60%' }}> 
-            <h1>Hello World </h1>
+
+        <div>
+        <div className='googleMap' style={{ height: '80vh', width: '60%' }}> 
+            {/* <h1>Hello World </h1> */}
             
             <GoogleMapReact
                 bootstrapURLKeys={{ key: "AIzaSyCl101Dkuw6zqcwqVETjEYyt5HgATs2WwU" }}
@@ -82,6 +84,7 @@ function TaskMap( props ) {
 
             </GoogleMapReact>
 
+        </div>
         </div>
     );
 

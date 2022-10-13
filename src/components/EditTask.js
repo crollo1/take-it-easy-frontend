@@ -128,7 +128,7 @@ function EditTask(){
             <h2>Edit your task</h2>
 
             {task !== undefined ? 
-                <form className="posttaskform" onSubmit={handleSubmit} >
+                <form className='postTask' onSubmit={handleSubmit} >
 
                 <div>
                 <input className="posttaskinput" onChange={handleInput}
