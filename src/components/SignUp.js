@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 
-let BASE_BACKEND_URL = 'http://localhost:3000';
+let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
 function SignUp( props ) {
 

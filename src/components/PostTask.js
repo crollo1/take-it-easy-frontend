@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-let BASE_BACKEND_URL = 'http://localhost:3000';
+let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
 function PostTask( props ) {
 

@@ -19,7 +19,7 @@ import axios from 'axios';
 import TaskMap from './TaskMap';
 import TaskShow from './TaskShow';
 
-let BASE_BACKEND_URL = 'http://localhost:3000';
+let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
 function Home( props ) {
 

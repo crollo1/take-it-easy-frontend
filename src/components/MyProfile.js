@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 
-const BASE_BACKEND_URL = 'http://localhost:3000'
+const BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/'
 
 function MyProfile( props ) {
 

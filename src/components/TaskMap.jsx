@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 // import {useNavigate} from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 
-let BASE_BACKEND_URL = 'http://localhost:3000';
+let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
 const TaskMarker = ({ text }) => <div>{text}</div>;
 

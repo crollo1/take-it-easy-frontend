@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-let BASE_BACKEND_URL = 'http://localhost:3000';
+let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
 function Tasks() {
 
