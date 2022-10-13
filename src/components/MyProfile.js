@@ -9,9 +9,8 @@ let BASE_BACKEND_URL = 'http://localhost:3000';
 if( process.env.NODE_ENV === 'development'){
     BASE_BACKEND_URL = 'http://localhost:3000';
 } else {
-    BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
+    BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com';
 }
-// const BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/'
 
 function MyProfile( props ) {
 
@@ -45,6 +44,7 @@ function MyProfile( props ) {
 
         <div className="profile">
             <h1>Welcome {props.currentUser !== null ? props.currentUser.name : ''}</h1>
+            <img src="/images/avatarnew.webp" className="profilePhoto" alt="" />
             <h2 className="yourProfile">Your profile</h2>
 
             {userTasks.map( t =>

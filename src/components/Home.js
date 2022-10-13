@@ -25,9 +25,8 @@ let BASE_BACKEND_URL = 'http://localhost:3000';
 if( process.env.NODE_ENV === 'development'){
     BASE_BACKEND_URL = 'http://localhost:3000';
 } else {
-    BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
+    BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com';
 }
-// let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
 function Home( props ) {
 
@@ -100,10 +99,10 @@ function Home( props ) {
             <span id="leftLinks">    
             <Link to="/">Home</Link>
             <Link to="/categories">Categories</Link> 
-            <Link to="/tasks">Browse Tasks</Link> 
 
             { currentUser !== null ? (
               <>
+              <Link to="/tasks">Browse Tasks</Link> 
               <Link to="/postTask">Post a Task</Link> 
               <Link to="/worker">Become a Tasker</Link>
               </>
@@ -124,10 +123,10 @@ function Home( props ) {
               <Route path="/user" element={ <User/> }/>
               <Route path="/signUp" element={ <SignUp fetchUser={fetchUser}/> }/>
               <Route path="/login" element={ <Login fetchUser={fetchUser} /> }/> 
-              <Route path="/tasks" element={ <Tasks/> }/>
 
               { currentUser &&
                 <>
+                <Route path="/tasks" element={ <Tasks/> }/>
                 <Route path="/categories" element={ <Categories/> } />
                 <Route path="/postTask" element={ <PostTask currentUser={currentUser} /> }/>
                 <Route path="/worker" element={ <BecomeHelper currentUser={currentUser}/> }/>

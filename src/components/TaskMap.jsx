@@ -9,9 +9,8 @@ let BASE_BACKEND_URL = 'http://localhost:3000';
 if( process.env.NODE_ENV === 'development'){
     BASE_BACKEND_URL = 'http://localhost:3000';
 } else {
-    BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
+    BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com';
 }
-// let BASE_BACKEND_URL = 'https://take-it-easy-express.herokuapp.com/';
 
 const TaskMarker = ({ text }) => <div>{text}</div>;
 
@@ -59,7 +58,7 @@ function TaskMap( props ) {
             {/* <h1>Hello World </h1> */}
             
             <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyCl101Dkuw6zqcwqVETjEYyt5HgATs2WwU" }}
+                bootstrapURLKeys={{ key: "AIzaSyAxo1Hl7k6CarEFbygOwox5bu4xwLeUFK0" }}
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
             >

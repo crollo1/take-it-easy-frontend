@@ -276,3 +276,9 @@ button {
   border-radius: 10px !important;
   text-align: center;
 }
+
+.profilePhoto {
+  max-width: 20vw;
+  max-height: 20vh;
+  border-radius: 50%; 
+}
