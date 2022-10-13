@@ -1,8 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import { ListGroup } from 'react-bootstrap';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 

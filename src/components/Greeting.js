@@ -1,6 +1,4 @@
 
-import Home from "./Home";
-import {BrowserRouter as Router, json, Link, Route, Routes} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';

@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
@@ -13,8 +13,8 @@ function TaskMap( props ) {
 
     const [tasks, setTasks] = useState([]);
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(true); 
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(true); 
 
     useEffect( () => {
         console.log(`Component Mounting`);

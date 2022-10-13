@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 // import Button from 'react-bootstrap/Button';
 // import axios from 'axios';
-import {BrowserRouter as Router, json, Link, Route, Routes} from 'react-router-dom';
+import {Link, Route, Routes} from 'react-router-dom';
 
 import User from './User';
 import Login from './Login';
@@ -66,7 +66,6 @@ function Home( props ) {
 
     <div className="App">
 
-      {/* <Router> */}
         <header className="App-header">    
         <h1>TakeItEasy</h1>
         <h3>Get back time for yourself.</h3>
@@ -131,9 +130,6 @@ function Home( props ) {
               }
             </Routes>
         </div>
-
-      {/* </Router> */}
-
       
     </div>
     

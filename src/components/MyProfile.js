@@ -1,5 +1,4 @@
 
-import Home from "./Home";
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
@@ -8,37 +7,41 @@ const BASE_BACKEND_URL = 'http://localhost:3000'
 
 function MyProfile( props ) {
 
-    const [currentUser, setCurrentUser] = useState({
-        name: '',
-        password: '',
-    });
-    const [loading, setLoading] = useState( false );
-    const [error, setError]     = useState( null );
+    // const [currentUser, setCurrentUser] = useState({
+    //     name: '',
+    //     password: '',
+    // });
+    // const [loading, setLoading] = useState( false );
+    // const [error, setError]     = useState( null );
     const [userTasks, setUserTasks] = useState([]);
 
-    const fetchUserTasks = async () => {
+    // const fetchUserTasks = async () => {
 
-        try {
+        
+    // } // fetchUserTasks
+    
+    useEffect( () => {
+        
+        const fetchUserTasks = async () => {
 
-            const res = await axios.get(`${BASE_BACKEND_URL}/tasks`)
-            console.log(res.data); // this is an array
-            console.log(props.currentUser._id);
-            const currentUserTasks = res.data.filter(tasks => tasks.postedBy === props.currentUser._id ? tasks : '')
-            console.log(' current user tasks', currentUserTasks);
-            setUserTasks(currentUserTasks);
-
-        } catch (err) {
-            console.error('Error loading tasks', err );
-        }
-
-    } // fetchUserTasks
-
-    useEffect(() => {
+            try {
+                
+                const res = await axios.get(`${BASE_BACKEND_URL}/tasks`)
+                console.log(res.data); // this is an array
+                console.log(props.currentUser._id);
+                const currentUserTasks = res.data.filter(tasks => tasks.postedBy === props.currentUser._id ? tasks : '')
+                console.log(' current user tasks', currentUserTasks);
+                setUserTasks(currentUserTasks);
+        
+            } catch (err) {
+                console.error('Error loading tasks', err );
+            }
+        
+        } // fetchUserTasks
 
         fetchUserTasks();
-        //  <--- UNCOMMENT LATER
-
-    }, [] );// Use effect function 
+        
+    }, [props.currentUser._id] );// Use effect function 
 
     return (
 

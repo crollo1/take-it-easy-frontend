@@ -1,6 +1,4 @@
 
-import Home from "./Home";
-import axios from "axios";
 import SignUp from "./SignUp";
 
 function Worker() {
