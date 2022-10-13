@@ -47,7 +47,7 @@ function EditTask(){
         }
         fetchTasks();
 
-    }, [] ); 
+    }, [params.id] ); 
 
 
     const handleSubmit = (ev) => {

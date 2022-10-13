@@ -5,7 +5,7 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import {useNavigate, useParams, Link} from 'react-router-dom';
+import { useParams, Link} from 'react-router-dom';
 
 let BASE_BACKEND_URL = 'http://localhost:3000';
 
@@ -21,7 +21,7 @@ function TaskPage( props ) {
     const params = useParams();
 
     const [task, setTask] = useState();
-    const [error, setError] = useState( null );
+    // const [error, setError] = useState( null );
 
 
     useEffect( () => {
@@ -35,13 +35,13 @@ function TaskPage( props ) {
             } catch( err ){
 
                 console.error('error fetching task', err);
-                setError(err)
+                // setError(err)
 
             }
         }
         fetchTasks();
 
-    }, [] ); 
+    }, [params.id] ); 
 
 
     return (
