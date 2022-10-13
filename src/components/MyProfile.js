@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 
 const BASE_BACKEND_URL = 'http://localhost:3000'
 
-function MyProfile() {
+function MyProfile( props ) {
 
     const [currentUser, setCurrentUser] = useState({
         name: '',
@@ -21,8 +21,12 @@ function MyProfile() {
         try {
 
             const res = await axios.get(`${BASE_BACKEND_URL}/tasks`)
-            console.log(res.data);
-            setUserTasks(res.data);
+            console.log(res.data); // this is an array
+            console.log(props.currentUser._id);
+            const basket = [];
+            const currentUserTasks = res.data.filter(tasks => tasks.postedBy === props.currentUser._id ? tasks : '')
+            console.log(' current user tasks', currentUserTasks);
+            setUserTasks(currentUserTasks);
 
         } catch (err) {
             console.error('Error loading tasks', err );
@@ -32,35 +36,6 @@ function MyProfile() {
 
     useEffect(() => {
 
-        let token = "Bearer " + localStorage.getItem("jwt");
-        axios.get(`${BASE_BACKEND_URL}/current_user`, {
-
-            headers: {
-                'Authorization': token
-            }
-
-        }) // axios 
-        .then(res => {
-
-            // changing the state of loading 
-            setLoading(false);
-            
-            setCurrentUser({
-                name: res.data.name, 
-                password: res.data.password
-            }) 
-
-            console.log('current user:', res.data)
-
-        }) // then 
-        .catch(err => {
-
-            console.log('Error loading My profile for current user:', err)
-            setLoading(false);
-            setError(err)
-        });
-        // array if data comes from the router, so not responding to data keep the array empty. This then works like componentDidMount - loads one time
-
         fetchUserTasks();
         //  <--- UNCOMMENT LATER
 
@@ -69,7 +44,7 @@ function MyProfile() {
     return (
 
         <div className="profile">
-            <h1>Welcome {currentUser.name}</h1>
+            <h1>Welcome {props.currentUser.name}</h1>
             <h2 className="yourProfile">Your profile</h2>
 
             {userTasks.map( t =>

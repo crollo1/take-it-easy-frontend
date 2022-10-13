@@ -3,10 +3,9 @@ import Home from "./Home";
 import {BrowserRouter as Router, json, Link, Route, Routes} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 
-function Greeting() {
+function Greeting( props ) {
 
     const navigatePush = useNavigate(); 
-    const currentUser = localStorage.getItem('jwt');
 
     function handleClick(){
         navigatePush('/postTask');
@@ -25,9 +24,9 @@ function Greeting() {
                     {/* <img src="/images/ProfessionalLandscaper.png" /> */}
                 </div>
             </div>
-            
+
             <div className="taskbuttons">
-            { currentUser && 
+            { props.currentUser !== null ? ( 
                 <> 
                 <p className="posttaskheading">Post your first task in seconds</p>
                                 
@@ -43,6 +42,9 @@ function Greeting() {
                     <button onClick={handleClick}>App development</button>
                     <button onClick={handleClick}>Something else</button>
                 </>
+            ) : (
+                <></>
+            )
             }
             </div>
             {/* </Link> */}

@@ -1,7 +1,7 @@
 
 import Home from "./Home";
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
@@ -17,7 +17,13 @@ function PostTask( props ) {
     const [area, setArea] = useState('');
     const [description, setDescription] = useState('')
 
-    const navigatePush = useNavigate();  
+    const navigatePush = useNavigate(); 
+    
+    // useEffect( () => {
+
+    //     console.log('This is the users id ', props.currentUser);
+  
+    // }, [] );
 
     const handleSubmit = (ev) => {
 
@@ -31,12 +37,13 @@ function PostTask( props ) {
             "fullDescription": description,
             "price": price,
             "location": location,
-            "area": area
+            "area": area,
+            "postedBy": props.currentUser._id
         })
         .then(res => {
 
             localStorage.setItem("jwt", res.data.token);
-            props.fetchUser();
+            // props.fetchUser();
             navigatePush('/tasks');
 
         })
