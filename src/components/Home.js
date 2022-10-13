@@ -114,15 +114,15 @@ function Home( props ) {
             <Routes>
               {/* { currentUser && */}
                 {/* <> */}
-                <Route path="/" element={ <Greeting/> }  />
+                <Route path="/" element={ <Greeting currentUser={currentUser}/> }  />
                 <Route path="/user" element={ <User/> }/>
                 <Route path="/signUp" element={ <SignUp fetchUser={fetchUser}/> }/>
                 <Route path="/login" element={ <Login fetchUser={fetchUser} /> }/> 
                 <Route path="/categories" element={ <Categories/> } />
                 <Route path="/tasks" element={ <Tasks/> }/>
-                <Route path="/postTask" element={ <PostTask fetchUser={fetchUser} /> }/>
-                <Route path="/worker" element={ <BecomeHelper fetchUser={fetchUser}/> }/>
-                <Route path="/profile" element={ <MyProfile/> }/>
+                <Route path="/postTask" element={ <PostTask currentUser={currentUser} /> }/>
+                <Route path="/worker" element={ <BecomeHelper currentUser={currentUser}/> }/>
+                <Route path="/profile" element={ <MyProfile currentUser={currentUser}/> }/>
                 <Route path="/taskmap" element={<TaskMap/>} />
                 {/* </> */}
               {/* } */}
