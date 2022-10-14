@@ -7,3 +7,5 @@ Our frontend for this project was created using React and assorted JavaScript, w
 We wanted to create an Airtasker clone, and prioritise functionality first in the limited time available.
 
 !(https://github.com/crollo1/take-it-easy-frontend/blob/main/readme-images/Initial-Mockup.png)
+
+<img src="https://github.com/crollo1/take-it-easy-frontend/blob/main/readme-images/Initial-Mockup.png" alt="Image of Initial Layout Design" title="Intial Planning">
