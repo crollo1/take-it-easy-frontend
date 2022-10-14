@@ -6,4 +6,4 @@ Our frontend for this project was created using React and assorted JavaScript, w
 
 We wanted to create an Airtasker clone, and prioritise functionality first in the limited time available.
 
-!(https://github.com/crollo1/digi-me-react-frontend/readme-images/Initial-Mockup.png?raw=true)
+!(https://github.com/crollo1/digi-me-react-frontend/readme-images/Initial-Mockup.png)
