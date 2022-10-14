@@ -300,3 +300,8 @@ button {
   /* display: flex; */
   align-items: left;
 }
+
+.gardening {
+  max-width: 90vw;
+  border-radius: 20px;
+}

@@ -124,11 +124,11 @@ function Home( props ) {
               <Route path="/user" element={ <User/> }/>
               <Route path="/signUp" element={ <SignUp fetchUser={fetchUser}/> }/>
               <Route path="/login" element={ <Login fetchUser={fetchUser} /> }/> 
+              <Route path="/categories" element={ <Categories/> } />
 
               { currentUser &&
                 <>
                 <Route path="/tasks" element={ <Tasks/> }/>
-                <Route path="/categories" element={ <Categories/> } />
                 <Route path="/postTask" element={ <PostTask currentUser={currentUser} /> }/>
                 <Route path="/worker" element={ <BecomeHelper currentUser={currentUser}/> }/>
                 <Route path="/profile" element={ <MyProfile currentUser={currentUser}/> }/>
