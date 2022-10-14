@@ -51,6 +51,7 @@ function Home( props ) {
         .then(res => {
 
           // TODO: BELOW MIGHT BE AN ERROR should be in object
+          console.log(res.data);
           setCurrentUser(res.data)
     
         })

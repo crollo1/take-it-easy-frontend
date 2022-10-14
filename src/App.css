@@ -52,7 +52,7 @@ nav {
   margin-top: 5px;
 }
 
-a {
+nav a {
   text-decoration: none;
   font-size: 17.5px;
   border: none;
@@ -62,12 +62,17 @@ a {
   color: white;
 }
 
-a:hover {
+nav a:hover {
   color: #282c34;
   background-color: #e5e5e5;
   transform: scale(1.5);
   box-shadow: 2.5px 5px (#232121);
   /* background: linear-gradient(-45deg, #b9dcf2 0%, #f6cfbe 100% ); */
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 input {
@@ -275,10 +280,23 @@ button {
 .googleMap {
   border-radius: 10px !important;
   text-align: center;
+  align-items: right;
+  display: inline-block;
 }
 
 .profilePhoto {
   max-width: 20vw;
   max-height: 20vh;
   border-radius: 50%; 
+}
+
+.taskAndMap{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 40vw 60vw;
+}
+
+.taskContainer {
+  /* display: flex; */
+  align-items: left;
 }

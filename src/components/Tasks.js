@@ -47,24 +47,26 @@ function Tasks() {
             {' '}{' '}
             <button>Search</button>
             </div>
-            <TaskMap />
-            <div>
-              {
-                allTasks.map( t => 
-                    <Link to={`/tasks/${t._id}`} >
-                    <div className="taskDetails" key={t._id}>
-                        <h4><strong>Name:</strong> {t.name}</h4>
-                        <p><strong>Date: </strong>{t.startDate}</p>
-                        <p><strong>Location: </strong>{t.location}</p>
-                        <p><strong>Area:</strong> {t.area}</p>
-                        <p><strong>Description:</strong> {t.fullDescription}</p>
-                        <p><strong>Price:</strong> ${t.price}</p>
-                    </div> 
-                    </Link>
-                )
-              }  
+
+            <div className='taskAndMap'>
+                <div className='taskContainer'>
+                {
+                    allTasks.map( t => 
+                        <Link to={`/tasks/${t._id}`} key={t._id} >
+                        <div className="taskDetails" >
+                            <h4><strong>Name:</strong> {t.name}</h4>
+                            <p><strong>Date: </strong>{t.startDate}</p>
+                            <p><strong>Location: </strong>{t.location}</p>
+                            <p><strong>Area:</strong> {t.area}</p>
+                            <p><strong>Description:</strong> {t.fullDescription}</p>
+                            <p><strong>Price:</strong> ${t.price}</p>
+                        </div> 
+                        </Link>
+                    )
+                }  
+                </div>
+                <TaskMap />
             </div>
-        
         </div>
 
     ); // return

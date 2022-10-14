@@ -23,6 +23,7 @@ function EditTask(){
     const [area, setArea] = useState('');
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
+    // const [coordinates, setCoordinates] = useState('');
 
     const [task, setTask] = useState();
     const navigatePush = useNavigate(); 
@@ -54,9 +55,11 @@ function EditTask(){
 
         ev.preventDefault();
         console.log('Edit task:', name, date);
+        console.log('this is a params id', params.id);
 
-        axios.post(`${BASE_BACKEND_URL}/tasks/:id`,
+        axios.post(`${BASE_BACKEND_URL}/tasks/${params.id}`,
         { 
+            "_id": params,
             "name": name, 
             "startDate": date,
             "fullDescription": description,
@@ -64,12 +67,16 @@ function EditTask(){
             "location": location,
             "area": area,
             "address": address,
+            "gpsLocation": {
+                type: 'Point', 
+                coordinates: [151.25747616918167, -33.913759459412844] // This needs to be updated, not hardcoded   
+            } 
             // "postedBy": props.currentUser._id
         })
         .then(res => {
 
-            localStorage.setItem("jwt", res.data.token);
             // props.fetchUser();
+            console.log('response', res.data);
             navigatePush('/tasks');
 
         })
@@ -135,7 +142,7 @@ function EditTask(){
                 name="name"
                 type="name"
                 required
-                value={task.name}
+                defaultValue={task.name}
                 />
                 </div>
                 <DatePicker
@@ -143,7 +150,7 @@ function EditTask(){
                 dateFormat="yyyy-MM-dd"
                 selected={date}
                 // placeholderText="Select date"
-                value={task.startDate}
+                defaultValue={task.startDate}
                 // onSelect={setDate} //when day is clicked
                 onChange={(date => setDate(date))} //only when value has changed
                 />
@@ -152,7 +159,7 @@ function EditTask(){
                 name="address"
                 type="text"
                 required
-                value={task.address}
+                defaultValue={task.address}
                 />
                 </div>
                 <div>
@@ -160,44 +167,38 @@ function EditTask(){
                 name="location"
                 type="name"
                 required
-                value={task.location}
+                defaultValue={task.location}
                 />
                 </div>
                 <div>
                 <input className="posttaskinput" onChange={handleInput}
                 name="area"
                 type="text"
-                value={task.area}
+                defaultValue={task.area}
                 />
                 </div>
                 <div>
                 <input className="posttaskinput" onChange={handleInput}
                 name="price"
                 type="number"
-                value={task.price}
+                defaultValue={task.price}
                 />
                 </div>
                 <div>
                 <textarea rows="4" cols="23" className="posttaskinput" onChange={handleInput}
                 name="fullDescription"
                 type="textarea"
-                value={task.fullDescription}
+                defaultValue={task.fullDescription}
                 />
                 </div>
                 
-                {/* <div> */}
-                {/* <input className="posttaskinput"
-                onChange={date => console.log(date)}
-                type="date"
-                />
-                </div> */}
                 <div className="posttaskbutton">
                 {/* <button>On date</button> */}
                 <button>Submit Task</button>
                 {/* <button>I'm Flexible</button> */}
                 </div> 
             </form>
-            : <h2>Error loading form</h2>
+            : <h2>loading form...</h2>
             }
 
         </div>

@@ -57,7 +57,7 @@ function TaskPage( props ) {
                 <button>Make an offer</button>
                 <button><Link to={`/tasks/${params.id}/edit`}>Edit Task</Link></button>
             </div> 
-            : <h2>Error loading task</h2>
+            : <h2>loading task...</h2>
             } 
         </div>
 

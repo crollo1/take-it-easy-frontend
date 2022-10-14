@@ -23,6 +23,7 @@ function PostTask( props ) {
     const [area, setArea] = useState('');
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
+    // const [coordinates, setCoordinates] = useState('');
 
     const navigatePush = useNavigate(); 
 
@@ -41,6 +42,10 @@ function PostTask( props ) {
             "location": location,
             "area": area,
             "address": address,
+            "gpsLocation": {
+                type: 'Point', 
+                coordinates: [151.25747616918167, -33.913759459412844] // This needs to be updated, not hardcoded   
+            } 
             // "postedBy": props.currentUser._id
         })
         .then(res => {

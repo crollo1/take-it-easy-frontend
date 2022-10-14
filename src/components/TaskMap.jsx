@@ -54,7 +54,7 @@ function TaskMap( props ) {
     return (
 
         <div>
-        <div className='googleMap' style={{ height: '80vh', width: '60%' }}> 
+        <div className='googleMap' style={{ height: '60vh', width: '100%', alignItems: 'right', marginTop: '40px', borderRadius: '20px' }}> 
             {/* <h1>Hello World </h1> */}
             
             <GoogleMapReact
